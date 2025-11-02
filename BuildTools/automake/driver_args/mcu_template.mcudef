@@ -1,0 +1,29 @@
+#######################################
+# mcu_template(to replace)
+#######################################
+MCU_NAME := mcu_template
+
+ifneq ($(basename $(notdir $(lastword $(MAKEFILE_LIST)))), $(MCU_NAME))
+    $(error The Makefile file basename error, this will lead to an incorrect reference to `mcu_list`!)
+endif
+
+#######################################
+# tools info
+#######################################
+LINK_ORDER_$(MCU_NAME) := GNU
+AR_BIN_$(MCU_NAME)     := $(BUILD_TOOLS_DIR)/binutils/shell-env/usr/bin/busybox true
+CC_BIN_$(MCU_NAME)     := $(BUILD_TOOLS_DIR)/binutils/shell-env/usr/bin/busybox true
+RE_BIN_$(MCU_NAME)     := $(BUILD_TOOLS_DIR)/binutils/shell-env/usr/bin/busybox true
+SZ_BIN_$(MCU_NAME)     := $(BUILD_TOOLS_DIR)/binutils/shell-env/usr/bin/busybox true
+WN_BIN_$(MCU_NAME)     := $(BUILD_TOOLS_DIR)/automake/scripts/wn_common.sh
+
+#######################################
+# build args
+#######################################
+CC_ARGS_$(MCU_NAME)    :=
+
+AS_ARGS_$(MCU_NAME)    :=
+
+LD_ARGS_$(MCU_NAME)    :=
+
+LIBS_$(MCU_NAME)       :=
